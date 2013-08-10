@@ -43,13 +43,13 @@ public class PositionController {
 	
 	public List<Position> findsPositionforBlackPawn() {
 		List<Position> positions = new ArrayList<Position>();
-		positions.addAll(position.findsPositionForBlackPawn());
+		positions.addAll(position.findsPositionForBlackPawn(position));
 		return positions;
 	}
 
 	public List<Position> findsPositionforWhitePawn() {
 		List<Position> positions = new ArrayList<Position>();
-		positions.addAll(position.findsPositionForWhitePawn());
+		positions.addAll(position.findsPositionForWhitePawn(position));
 		return positions;
 	}
 	

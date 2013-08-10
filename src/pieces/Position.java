@@ -65,20 +65,26 @@ public class Position {
 		return positions;
 	}
 	
-	List<Position> findsPositionForBlackPawn() {
+	List<Position> findsPositionForBlackPawn(Position position) {
 		ArrayList<Position> positions = new ArrayList<Position>();
 		Position currentPosition = move(Direction.SOUTH);
 		if (currentPosition.isValid()) {
 			positions.add(currentPosition);
+			if (position.getY() == 6) {
+				positions.add(currentPosition.move(Direction.SOUTH));
+			}
 		}
 		return positions;
 	}
 	
-	List<Position> findsPositionForWhitePawn() {
+	List<Position> findsPositionForWhitePawn(Position position) {
 		ArrayList<Position> positions = new ArrayList<Position>();
 		Position currentPosition = move(Direction.NORTH);
 		if (currentPosition.isValid()) {
 			positions.add(currentPosition);
+			if (position.getY() == 1) {
+				positions.add(currentPosition.move(Direction.NORTH));
+			}
 		}
 		return positions;
 	}
