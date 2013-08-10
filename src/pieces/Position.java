@@ -55,6 +55,16 @@ public class Position {
 		}
 		return positions;
 	}
+
+	List<Position> findsPositionForKing(Direction direction) { //King 클래스에만 사용. 한 칸씩만 이동하면 되므로 반복문 사용할 필요 없고 보드 밖(좌표값이 -1인 영역)으로 나가지 않게 if문 사용해서 처리해야함
+		ArrayList<Position> positions = new ArrayList<Position>();
+		Position currentPosition = move(direction);
+		if (currentPosition.isValid()) {
+			positions.add(currentPosition);
+			currentPosition = currentPosition.move(direction);
+		}
+		return positions;
+	}
 	
 	boolean isValid() {
 		if ( y < 0 || y >= Board.ROW_SIZE) {

@@ -27,4 +27,17 @@ public class PositionController {
 		}
 		return positions;
 	}
+
+	public List<Position> findsPositionForKing() { //King 클래스에만 사용하는 메소드. 한 군데만 사용하는 메소드를 따로 만들지 않고 해결하는 방법은 없는가?
+		Direction[] linears = Direction.linearDirection();
+		Direction[] diagonals = Direction.diagonalDirection();
+		List<Position> positions = new ArrayList<Position>();
+		for (Direction direction : linears) {
+			positions.addAll(position.findsPositionForKing(direction));
+		}
+		for (Direction direction : diagonals) {
+			positions.addAll(position.findsPositionForKing(direction));
+		}
+		return positions;
+	}
 }
