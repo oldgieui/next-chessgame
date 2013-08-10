@@ -30,7 +30,7 @@ public abstract class Piece {
 		}
 	}
 	
-	private Color color;
+	protected Color color;
 	private Type type;
 	protected Position position;
 	

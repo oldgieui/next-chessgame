@@ -13,10 +13,10 @@ public class Queen extends Piece {
 		PositionController pc = new PositionController(position);
 //		List<Position> possiblePlacesLinear = pc.findsLinearPositionAll();
 //		List<Position> possiblePlacesDiagonal = pc.findsDiagonalPositionAll();
-		List<Position> possiblePlaces = new ArrayList<Position>(pc.findsLinearPositionAll());
-		possiblePlaces.addAll(pc.findsDiagonalPositionAll());
+		List<Position> possiblePositions = new ArrayList<Position>(pc.findsLinearPositionAll());
+		possiblePositions.addAll(pc.findsDiagonalPositionAll());
 		
-		return possiblePlaces;
+		return possiblePositions;
 		
 	}
 }

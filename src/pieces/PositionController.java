@@ -40,4 +40,17 @@ public class PositionController {
 		}
 		return positions;
 	}
+	
+	public List<Position> findsPositionforBlackPawn() {
+		List<Position> positions = new ArrayList<Position>();
+		positions.addAll(position.findsPositionForBlackPawn());
+		return positions;
+	}
+
+	public List<Position> findsPositionforWhitePawn() {
+		List<Position> positions = new ArrayList<Position>();
+		positions.addAll(position.findsPositionForWhitePawn());
+		return positions;
+	}
+	
 }

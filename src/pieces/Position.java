@@ -61,10 +61,28 @@ public class Position {
 		Position currentPosition = move(direction);
 		if (currentPosition.isValid()) {
 			positions.add(currentPosition);
-			currentPosition = currentPosition.move(direction);
 		}
 		return positions;
 	}
+	
+	List<Position> findsPositionForBlackPawn() {
+		ArrayList<Position> positions = new ArrayList<Position>();
+		Position currentPosition = move(Direction.SOUTH);
+		if (currentPosition.isValid()) {
+			positions.add(currentPosition);
+		}
+		return positions;
+	}
+	
+	List<Position> findsPositionForWhitePawn() {
+		ArrayList<Position> positions = new ArrayList<Position>();
+		Position currentPosition = move(Direction.NORTH);
+		if (currentPosition.isValid()) {
+			positions.add(currentPosition);
+		}
+		return positions;
+	}
+	
 	
 	boolean isValid() {
 		if ( y < 0 || y >= Board.ROW_SIZE) {
