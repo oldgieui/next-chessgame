@@ -22,14 +22,14 @@ public class PieceTest extends TestCase {
 	}
 	
 	/**
-	 * Rook 이동 테스트 함수
+	 * Rook 이동 가능한 위치 확인하는 테스트 함수
 	 * @throws Exception
 	 */
 	public void testMoveRook() throws Exception {
 		Position source = new Position("a1");
 		Position target = new Position("a2");
 		Piece whiteRook = new Rook(Color.WHITE, source);
-		assertEquals(new Rook(Color.WHITE, target), whiteRook.move(target));
+		assertTrue(whiteRook.getPossibleMoves().contains(target));
 	}
 	
 	public void testLeave() throws Exception {
