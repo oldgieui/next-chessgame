@@ -32,7 +32,7 @@ public abstract class Piece {
 	
 	private Color color;
 	private Type type;
-	private Position position;
+	protected Position position;
 	
 	Piece(Color color, Type type, Position position) {
 		this.color = color;

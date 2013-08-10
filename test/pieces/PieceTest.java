@@ -21,6 +21,17 @@ public class PieceTest extends TestCase {
 		assertEquals(new Pawn(Color.WHITE, target), whitePawn.move(target));
 	}
 	
+	/**
+	 * Rook 이동 테스트 함수
+	 * @throws Exception
+	 */
+	public void testMoveRook() throws Exception {
+		Position source = new Position("a1");
+		Position target = new Position("a2");
+		Piece whiteRook = new Rook(Color.WHITE, source);
+		assertEquals(new Rook(Color.WHITE, target), whiteRook.move(target));
+	}
+	
 	public void testLeave() throws Exception {
 		Position source = new Position("a1");
 		Piece whitePawn = new Pawn(Color.WHITE, source);
