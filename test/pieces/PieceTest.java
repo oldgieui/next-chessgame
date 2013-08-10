@@ -32,6 +32,17 @@ public class PieceTest extends TestCase {
 		assertTrue(whiteRook.getPossibleMoves().contains(target));
 	}
 	
+	/**
+	 * Bishop 이동 가능한 위치 확인하는 테스트 함수
+	 * @throws Exception
+	 */
+	public void testMoveBishop() throws Exception {
+		Position source = new Position("a1");
+		Position target = new Position("b2");
+		Piece whiteBishop = new Bishop(Color.WHITE, source);
+		assertTrue(whiteBishop.getPossibleMoves().contains(target));
+	}
+	
 	public void testLeave() throws Exception {
 		Position source = new Position("a1");
 		Piece whitePawn = new Pawn(Color.WHITE, source);
