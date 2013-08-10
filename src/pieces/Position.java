@@ -35,6 +35,12 @@ public class Position {
 	public int getY() {
 		return this.y;
 	}
+
+//	Queen 위치 확인 테스트를 위해 만든 메소드이나 테스트코드만을 위한 메소드를 만드는 것은 본말전도라는 조언에 따라 뺌.
+//	public void setNewPosition(String position){
+//		this.x = generateColumnIndex(position.charAt(0));
+//		this.y = Integer.parseInt(position.substring(1)) - 1;
+//	}
 	
 	Position move(Direction direction) {
 		return new Position(this.x + direction.getXDegree(), this.y + direction.getYDegree());
