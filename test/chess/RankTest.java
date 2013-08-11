@@ -3,7 +3,7 @@ package chess;
 import junit.framework.TestCase;
 import pieces.King;
 import pieces.Pawn;
-import pieces.Piece;
+import pieces.PieceOperations;
 import pieces.Piece.Color;
 import pieces.Position;
 import pieces.Queen;
@@ -63,10 +63,10 @@ public class RankTest extends TestCase {
 		Position source = new Position("d2");
 		Position target = new Position("d3");
 		
-		Piece sourcePiece = rank.findPiece(source);
+		PieceOperations sourcePiece = rank.findPiece(source);
 		assertEquals(new Pawn(Color.WHITE, source), sourcePiece);
 		
-		Piece targetPiece = rank.move(sourcePiece, target);
+		PieceOperations targetPiece = rank.move(sourcePiece, target);
 		assertEquals(new Pawn(Color.WHITE, target), targetPiece);
 	}
 }
