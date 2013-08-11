@@ -47,7 +47,7 @@ public abstract class Piece {
 		return type.getSymbol();
 	}
 	
-    boolean isWhite() {
+    public boolean isWhite() {
         if (Color.WHITE == color) {
             return true;
         }
@@ -55,7 +55,7 @@ public abstract class Piece {
         return false;
     }
 
-    boolean isBlack() {
+    public boolean isBlack() {
         if (Color.BLACK == color) {
             return true;
         }

@@ -72,5 +72,19 @@ public class BoardTest extends TestCase {
 		System.out.println("emptySourcePiece = " + emptySourcePiece);
 		target = new Position("a5");
 		board.movePiece(emptySource, target);
+		
+		source = new Position("a1");
+		target = new Position("a8");
+		board.movePiece(source, target);
+		System.out.println(board.generateBoard());
+		
+		source = target;
+		target = new Position("b2");
+		board.movePiece(source, target);
+		System.out.println(board.generateBoard());
+		
+		target = new Position("a4");
+		board.movePiece(source, target);
+		System.out.println(board.generateBoard());
 	}
 }
