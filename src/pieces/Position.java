@@ -89,6 +89,31 @@ public class Position {
 		return positions;
 	}
 	
+	/**
+	 * Knight의 현재 위치, 십자방향, 사선방향을 입력받음.
+	 * 십자방향으로 1회 이동한 뒤 사선방향으로 1회 이동하고 그 위치가 존재하면 이동가능으로 표시. 
+	 * 하지만 모든 방향에 대해 위 작업을 실행하면 원래 위치의 바로 인접한 칸도 이동가능한 위치에 포함되는 문제가 발생함.
+	 * 따라서 해당 위치를 제외하기 위해 X좌표값의 차이가 1이고 Y좌표값이 같거나 Y좌표값의 차이가 1이고 X좌표값이 같은 경우를 제외하고 동작하도록 조건문을 사용해야 한다.
+	 * @param position
+	 * @param linearDirection
+	 * @param diagonalDirection
+	 * @return
+	 */
+	List<Position> findsPositionForKnight(Position position, Direction linearDirection, Direction diagonalDirection) {
+		ArrayList <Position> positions = new ArrayList<Position>();
+		Position currentPosition = move(linearDirection).move(diagonalDirection);
+		int differenceX = Math.abs(currentPosition.getX() - position.getX());
+		int differenceY = Math.abs(currentPosition.getY() - position.getY());
+		boolean isSameX = (currentPosition.getX()==position.getX());
+		boolean isSameY = (currentPosition.getY()==position.getY());
+		
+		if (currentPosition.isValid()) {
+			if (!(differenceX == 1 && isSameY || differenceY == 1 && isSameX)) {
+				positions.add(currentPosition);
+			}
+		}
+		return positions;
+	}
 	
 	boolean isValid() {
 		if ( y < 0 || y >= Board.ROW_SIZE) {

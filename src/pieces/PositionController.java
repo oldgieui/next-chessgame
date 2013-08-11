@@ -41,16 +41,28 @@ public class PositionController {
 		return positions;
 	}
 	
-	public List<Position> findsPositionforBlackPawn() {
+	public List<Position> findsPositionForBlackPawn() {
 		List<Position> positions = new ArrayList<Position>();
 		positions.addAll(position.findsPositionForBlackPawn(position));
 		return positions;
 	}
 
-	public List<Position> findsPositionforWhitePawn() {
+	public List<Position> findsPositionForWhitePawn() {
 		List<Position> positions = new ArrayList<Position>();
 		positions.addAll(position.findsPositionForWhitePawn(position));
 		return positions;
 	}
-	
+
+	public List<Position> findPositionForKnight() {
+		List<Position> positions = new ArrayList<Position>();
+		Direction[] linears = Direction.linearDirection();
+		Direction[] diagonal = Direction.diagonalDirection();
+		for (Direction linearDirection : linears) {
+			for (Direction diagonalDirection : diagonal) {
+				positions.addAll(position.findsPositionForKnight(position, linearDirection, diagonalDirection));
+			}
+		}
+		return positions;
+	}
+
 }

@@ -89,6 +89,14 @@ public class PieceTest extends TestCase {
 		assertTrue(whitePawn.getPossibleMoves().contains(whiteTarget));
 		assertTrue(blackPawn.getPossibleMoves().contains(blackTarget));
 	}
+	
+	public void testMoveKnight() throws Exception {
+		Position source = new Position("e5");
+		Piece whiteKnight = new Knight(Color.WHITE, source);
+		System.out.println("whiteKnight now : "+ whiteKnight.position);
+		System.out.println("whiteKnight can go to : "+ whiteKnight.getPossibleMoves());
+		
+	}
 
 	public void testLeave() throws Exception {
 		Position source = new Position("a1");

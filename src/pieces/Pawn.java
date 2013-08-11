@@ -12,9 +12,9 @@ public class Pawn extends Piece {
 		PositionController pc = new PositionController(position);
 		List<Position> possiblePositions = null;
 		if (this.color == Color.BLACK) {
-			possiblePositions = pc.findsPositionforBlackPawn();
+			possiblePositions = pc.findsPositionForBlackPawn();
 		} else if (this.color == Color.WHITE) {
-			possiblePositions = pc.findsPositionforWhitePawn();
+			possiblePositions = pc.findsPositionForWhitePawn();
 		}
 		return possiblePositions;
 	}
