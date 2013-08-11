@@ -11,7 +11,7 @@ public class Board {
 	public static final int ROW_SIZE = 8;
 	public static final int COLUMN_SIZE = 8;
 	
-	List<Rank> ranks = new ArrayList<Rank>();
+	static List<Rank> ranks = new ArrayList<Rank>();
 	
 	Board() {
 	}
@@ -87,19 +87,22 @@ public class Board {
 		} else
 			System.out.println("There is no piece to move.");
 	}
+
 	
-	String generateRank(int rankIndex) {
-		Rank rank = ranks.get(rankIndex);
-		StringBuilder sb = new StringBuilder();
-		sb.append(rank.generate());
-		return sb.toString();
+	
+	String generateBoard(GenerateBoardInConsole consoleBoard){
+		return consoleBoard.generateBoard();
+	}
+	
+	String generateBoard(GenerateBoardInHtml htmlBoard){
+		return htmlBoard.generateBoard();
 	}
 
-	String generateBoard() {
-		StringBuilder sb = new StringBuilder();
-		for (int i = ROW_SIZE; i > 0; i--) {
-			sb.append(generateRank(i-1) + NEW_LINE);
-		}
-		return sb.toString();
+	String generateRank(GenerateBoardInConsole consoleBoard, int i) {
+		return consoleBoard.generateRank(i);
+	}
+	
+	String generateRank(GenerateBoardInHtml htmlBoard, int i) {
+		return htmlBoard.generateRank(i);
 	}
 }

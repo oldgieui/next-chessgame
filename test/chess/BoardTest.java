@@ -17,8 +17,8 @@ public class BoardTest extends TestCase {
 	
 	public void testCreate() throws Exception {
 		board.initialize();
-		assertEquals(RankTest.WHITE_PAWN_RANK, board.generateRank(1));
-		assertEquals(RankTest.BLACK_PAWN_RANK, board.generateRank(6));
+		assertEquals(RankTest.WHITE_PAWN_RANK, board.generateRank(new GenerateBoardInConsole(), 1));
+		assertEquals(RankTest.BLACK_PAWN_RANK, board.generateRank(new GenerateBoardInConsole(), 6));
 	}
 	
 	public void testPrint() throws Exception {
@@ -32,8 +32,8 @@ public class BoardTest extends TestCase {
 			createEmptyRank() +
 			RankTest.WHITE_PAWN_RANK + Board.NEW_LINE +
 			RankTest.WHITE_EXCEPT_PAWN_RANK + Board.NEW_LINE;
-		assertEquals(expected, board.generateBoard());
-		System.out.println(board.generateBoard());
+		assertEquals(expected, board.generateBoard(new GenerateBoardInConsole()));
+		System.out.println(board.generateBoard(new GenerateBoardInConsole()));
 	}
 	
 	private String createEmptyRank() {
@@ -48,7 +48,7 @@ public class BoardTest extends TestCase {
 	
 	public void testInitializeEmpty() throws Exception {
 		board.initializeEmpty();
-		System.out.println(board.generateBoard());
+		System.out.println(board.generateBoard(new GenerateBoardInConsole()));
 	}
 	
 	public void testMovePiece() throws Exception {
@@ -61,7 +61,7 @@ public class BoardTest extends TestCase {
 		board.movePiece(source, target);
 		assertEquals(new Empty(Color.NOCOLOR, source), board.findPiece(source));
 		assertEquals(new Pawn(Color.WHITE, target), board.findPiece(target));
-		System.out.println(board.generateBoard());
+		System.out.println(board.generateBoard(new GenerateBoardInConsole()));
 	}
 
 	/**
@@ -99,7 +99,7 @@ public class BoardTest extends TestCase {
 		Position source = new Position("a1");
 		Position target = new Position("a2");
 		board.movePiece(source, target);
-		System.out.println(board.generateBoard());
+		System.out.println(board.generateBoard(new GenerateBoardInConsole()));
 	}
 	
 	/**
@@ -111,7 +111,14 @@ public class BoardTest extends TestCase {
 		Position source = new Position("c1");
 		Position target = new Position("c5");
 		board.movePiece(source, target);
-		System.out.println(board.generateBoard());
+		System.out.println(board.generateBoard(new GenerateBoardInConsole()));
 		
 	}
+	
+	public void testgenerateBoardInterface() throws Exception {
+		board.initialize();
+		System.out.println(board.generateBoard(new GenerateBoardInConsole()));
+		System.out.println(board.generateBoard(new GenerateBoardInHtml()));
+	}
+	
 }
