@@ -57,14 +57,18 @@ public class Board {
 	}
 
 	void movePiece(Position source, Position target) {
-		Piece targetPiece = findPiece(source);
-		Piece sourcePiece = targetPiece.leave();
-		
-		Rank sourceRank = ranks.get(source.getY());
-		sourceRank.move(sourcePiece, source);
-		
-		Rank targetRank = ranks.get(target.getY());
-		targetRank.move(targetPiece, target);
+		if (findPiece(source).getSymbol() != '.') {
+			Piece targetPiece = findPiece(source);
+			Piece sourcePiece = targetPiece.leave();
+			
+			Rank sourceRank = ranks.get(source.getY());
+			sourceRank.move(sourcePiece, source);
+			
+			Rank targetRank = ranks.get(target.getY());
+			targetRank.move(targetPiece, target);	
+		}
+		else
+			System.out.println("There is no piece to move.");
 	}
 	
 	String generateRank(int rankIndex) {
