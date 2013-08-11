@@ -115,7 +115,7 @@ public class Position {
 		return positions;
 	}
 	
-	boolean isValid() {
+	public boolean isValid() {
 		if ( y < 0 || y >= Board.ROW_SIZE) {
 			return false;
 		}
