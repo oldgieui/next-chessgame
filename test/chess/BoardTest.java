@@ -62,29 +62,56 @@ public class BoardTest extends TestCase {
 		assertEquals(new Empty(Color.NOCOLOR, source), board.findPiece(source));
 		assertEquals(new Pawn(Color.WHITE, target), board.findPiece(target));
 		System.out.println(board.generateBoard());
-		
-		source = target;
-		target = new Position("a9");
+	}
+
+	/**
+	 * 이동 목적지가 보드 바깥에 있는 경우 에러메시지가 출력되는 것을 확인하는 테스트
+	 * 
+	 * @throws Exception
+	 */
+	public void testMovePiece2() throws Exception {
+		board.initialize();
+		Position source = new Position("a2");
+		Position target = new Position("a9");
 		board.movePiece(source, target);
-				
+	}
+
+	/**
+	 * 소스의 위치에 말이 없을 경우 에러메시지가 출력되는 것을 확인하는 테스트
+	 * 
+	 * @throws Exception
+	 */
+	public void testMovePiece3() throws Exception {
+		board.initialize();
 		Position emptySource = new Position("a4");
 		Piece emptySourcePiece = board.findPiece(emptySource);
 		System.out.println("emptySourcePiece = " + emptySourcePiece);
-		target = new Position("a5");
+		Position target = new Position("a5");
 		board.movePiece(emptySource, target);
-		
-		source = new Position("a1");
-		target = new Position("a8");
+	}
+	
+	/**
+	 * 타겟 위치에 자신의 말이 존재할 경우 에러메시지가 출력되는 것을 확인하는 테스트
+	 * @throws Exception
+	 */
+	public void testMovePiece4() throws Exception {
+		board.initialize();
+		Position source = new Position("a1");
+		Position target = new Position("a2");
+		board.movePiece(source, target);
+		System.out.println(board.generateBoard());
+	}
+	
+	/**
+	 * 타겟 위치가 이동 명령을 내린 말이 갈 수 있는 곳이 아니면 에러메시지가 출력되는 것을 확인하는 테스트
+	 * @throws Exception
+	 */
+	public void testMovePiece5() throws Exception {
+		board.initialize();
+		Position source = new Position("c1");
+		Position target = new Position("c5");
 		board.movePiece(source, target);
 		System.out.println(board.generateBoard());
 		
-		source = target;
-		target = new Position("b2");
-		board.movePiece(source, target);
-		System.out.println(board.generateBoard());
-		
-		target = new Position("a4");
-		board.movePiece(source, target);
-		System.out.println(board.generateBoard());
 	}
 }

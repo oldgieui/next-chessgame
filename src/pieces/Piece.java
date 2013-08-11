@@ -78,6 +78,14 @@ public abstract class Piece {
 	
 	abstract List<Position> getPossibleMoves();
 	
+	public List<Position> getPossibleMoves2(){
+		return getPossibleMoves();
+	}
+	
+	public String getTypeName(){
+		return this.type.toString();
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
